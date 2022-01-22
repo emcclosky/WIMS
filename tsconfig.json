@@ -17,6 +17,6 @@
       "noFallthroughCasesInSwitch": true,
       "allowUnreachableCode": false
   },
-  "include": ["*"],
+  "include": ["*", "db/*"],
   "exclude": ["node_modules"]
 }
