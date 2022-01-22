@@ -1,20 +1,22 @@
 require("dotenv").config();
-import { Client } from "pg";
+import { Pool } from "pg";
+export { getAllProducts } from "./products";
 
-const client = new Client({
+const pool = new Pool({
 	user: process.env.DB_USER,
 	host: process.env.DB_HOST,
 	database: process.env.DATABASE,
 });
 
-client.connect();
-
-export const query = async (query: string) => {
+export const query = async <T>(query: string, args: string[] = []) => {
+	let client;
 	try {
-		await client.query(query);
+		client = await pool.connect();
+		const result = await client.query<T>(query, [...args]);
+		client?.release();
+		return result;
 	} catch (err) {
 		console.error(err);
-	} finally {
-		client.end();
+		throw err;
 	}
 };

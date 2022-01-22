@@ -18,13 +18,13 @@ const products = [
 	},
 ];
 
-type Product = {
+export type Product = {
 	url: string;
 	inStock: boolean | null;
 	keyword: string;
 };
 
-type Products = Product[];
+export type Products = Product[];
 
 const getInStockProducts = async (products: Products) => {
 	const browser = await initPuppeteer();
