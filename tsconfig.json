@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+      "strict": true,
+      "module": "commonjs",
+      "sourceMap": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "declaration": true,
+      "target": "es5",
+      "outDir": "./dist",
+      "noUnusedLocals": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitReturns": true,
+      "noUnusedParameters": true,
+      "pretty": true,
+      "noFallthroughCasesInSwitch": true,
+      "allowUnreachableCode": false
+  },
+  "include": ["*"],
+  "exclude": ["node_modules"]
+}
