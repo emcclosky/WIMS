@@ -1,42 +1,22 @@
 import puppeteer from "puppeteer";
+import { getAllInStockProducts, getAllProducts, updateProducts } from "./db";
+import { Product } from "./types";
 
-const products = [
-	{
-		url: "https://shop.lululemon.com/p/womens-leggings/Wunder-Train-HR-Tight-25/_/prod9750562?color=47870&sz=4",
-		inStock: null,
-		keyword: "Add to Bag",
-	},
-	{
-		url: "https://shop.lululemon.com/p/women-crops/Swift-Speed-High-Rise-Crop-23/_/prod10520368?color=0001&sz=4",
-		inStock: null,
-		keyword: "Add to Bag",
-	},
-	{
-		url: "https://www.garagegrowngear.com/collections/mens-clothing/products/mens-torrid-apex-jacket-by-enlightened-equipment?variant=15844953817162",
-		inStock: null,
-		keyword: "Sold out",
-	},
-];
-
-export type Product = {
-	url: string;
-	inStock: boolean | null;
-	keyword: string;
-};
-
-export type Products = Product[];
-
-const getInStockProducts = async (products: Products) => {
+const getInStockProducts = async () => {
+	const products = await getAllProducts();
 	const browser = await initPuppeteer();
 
 	try {
 		for (const product of products) {
 			product.inStock = await keywordPresent(browser, product);
 		}
+
+		await updateProducts(products);
+		const inStockProducts = await getAllInStockProducts();
+		console.log(inStockProducts);
 	} catch (err) {
 		console.error("error:", err);
 	} finally {
-		console.log("products", products);
 		await browser.close();
 	}
 };
@@ -55,7 +35,4 @@ const keywordPresent = async (browser: puppeteer.Browser, product: Product) => {
 	).length;
 };
 
-// takes bool and filters for only in stock
-// const filterInStock = () => {};
-
-getInStockProducts(products);
+getInStockProducts();

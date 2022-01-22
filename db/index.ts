@@ -1,6 +1,10 @@
 require("dotenv").config();
 import { Pool } from "pg";
-export { getAllProducts } from "./products";
+export {
+	getAllProducts,
+	getAllInStockProducts,
+	updateProducts,
+} from "./products";
 
 const pool = new Pool({
 	user: process.env.DB_USER,
@@ -8,7 +12,10 @@ const pool = new Pool({
 	database: process.env.DATABASE,
 });
 
-export const query = async <T>(query: string, args: string[] = []) => {
+export const query = async <T>(
+	query: string,
+	args: (boolean | string | number | null)[] = []
+) => {
 	let client;
 	try {
 		client = await pool.connect();

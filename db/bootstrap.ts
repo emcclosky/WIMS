@@ -6,7 +6,8 @@ const createProductsTable = `
     url TEXT,
     in_stock BOOLEAN,
     keyword TEXT,
-    created TIMESTAMP NOT NULL DEFAULT NOW()
+    created TIMESTAMP NOT NULL DEFAULT NOW(),
+	updated TIMESTAMP NOT NULL DEFAULT NOW()
   );
 `;
 
