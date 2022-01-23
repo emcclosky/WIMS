@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",
+    "server": "npx tsc && node ./dist/server.js",
     "scrape": "npx tsc && node ./dist/index.js",
     "db:bootstrap": "npx tsc && node ./dist/db/bootstrap.js",
-    "count-lines": "git ls-files | grep --invert-match yarn.lock | xargs cat | wc -l"
+    "count-lines": "git ls-files | grep --invert-match yarn.lock | xargs cat | wc -l",
+    "client": "yarn --cwd client start"
   },
   "dependencies": {
     "dotenv": "^14.2.0",
