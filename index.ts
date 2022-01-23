@@ -1,6 +1,8 @@
+require("dotenv").config();
 import puppeteer from "puppeteer";
 import { getAllInStockProducts, getAllProducts, updateProducts } from "./db";
 import { Product } from "./types";
+import { sendMail } from "./mail";
 
 const getInStockProducts = async () => {
 	const products = await getAllProducts();
@@ -13,6 +15,7 @@ const getInStockProducts = async () => {
 
 		await updateProducts(products);
 		const inStockProducts = await getAllInStockProducts();
+		await sendMail(inStockProducts);
 		console.log(inStockProducts);
 	} catch (err) {
 		console.error("error:", err);
