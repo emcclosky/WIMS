@@ -1,9 +1,10 @@
 require("dotenv").config();
 import express from "express";
+import cors from "cors";
 import { getAllProducts } from "./db";
 
 const app = express();
-app.use(express.json());
+app.use(cors(), express.json());
 
 app.get("/products", async (_, res) => {
 	try {
