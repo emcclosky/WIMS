@@ -37,8 +37,13 @@ yarn count-lines
 ```
 
 # Examples
+
+## Mobile
+<img width="394" alt="Screen Shot 2022-01-24 at 7 59 26 PM" src="https://user-images.githubusercontent.com/29644031/150893682-98967fbc-d3cc-42fa-9352-abae3371d545.png">
+
+
+## Desktop
 <img width="1540" alt="Screen Shot 2022-01-24 at 1 15 45 PM" src="https://user-images.githubusercontent.com/29644031/150893666-be3d9eef-9ec9-4f27-a6c6-56d2b8b6aa26.png">
 
-<img width="394" alt="Screen Shot 2022-01-24 at 7 59 26 PM" src="https://user-images.githubusercontent.com/29644031/150893682-98967fbc-d3cc-42fa-9352-abae3371d545.png">
 
 
