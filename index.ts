@@ -24,13 +24,15 @@ const getInStockProducts = async () => {
 	}
 };
 
-// TODO: lululemon blocks requests when running in headless
 const initPuppeteer = async () => {
-	return puppeteer.launch({ headless: false });
+	return puppeteer.launch({ headless: true });
 };
 
 const keywordPresent = async (browser: puppeteer.Browser, product: Product) => {
 	const page = await browser.newPage();
+	await page.setUserAgent(
+		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+	);
 	await page.goto(product.url);
 
 	return !(
