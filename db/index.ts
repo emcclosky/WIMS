@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 export {
 	getAllProducts,
-	getAllInStockProducts,
+	getAllAvailableProducts,
 	updateProducts,
 } from "./products";
 

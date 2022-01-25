@@ -6,7 +6,7 @@ const createProductsTable = `
     id SERIAL PRIMARY KEY,
 		name TEXT,
     url TEXT,
-    in_stock BOOLEAN,
+    available BOOLEAN,
     keyword TEXT,
     image TEXT,
     created TIMESTAMP NOT NULL DEFAULT NOW(),

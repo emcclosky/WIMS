@@ -1,22 +1,21 @@
 require("dotenv").config();
 import puppeteer from "puppeteer";
-import { getAllInStockProducts, getAllProducts, updateProducts } from "./db";
+import { getAllAvailableProducts, getAllProducts, updateProducts } from "./db";
 import { Product } from "./types";
 import { sendMail } from "./mail";
 
-const getInStockProducts = async () => {
+const getAvailableProducts = async () => {
 	const products = await getAllProducts();
 	const browser = await initPuppeteer();
 
 	try {
 		for (const product of products) {
-			product.inStock = await keywordPresent(browser, product);
+			product.available = await keywordPresent(browser, product);
 		}
 
 		await updateProducts(products);
-		const inStockProducts = await getAllInStockProducts();
-		await sendMail(inStockProducts);
-		console.log(inStockProducts);
+		const availableProducts = await getAllAvailableProducts();
+		await sendMail(availableProducts);
 	} catch (err) {
 		console.error("error:", err);
 	} finally {
@@ -40,4 +39,4 @@ const keywordPresent = async (browser: puppeteer.Browser, product: Product) => {
 	).length;
 };
 
-getInStockProducts();
+getAvailableProducts();

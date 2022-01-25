@@ -11,11 +11,11 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
-export async function sendMail(inStockProducts: Products) {
-	const productLength = inStockProducts.length;
+export async function sendMail(availableProducts: Products) {
+	const productLength = availableProducts.length;
 	const verb = productLength > 1 ? "are" : "is";
 	const plural = productLength > 1;
-	const emailBody = inStockProducts.reduce((body, product) => {
+	const emailBody = availableProducts.reduce((body, product) => {
 		return (body += `<li><a href="${product.url}">${product.name}</a></li>`);
 	}, "");
 

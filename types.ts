@@ -3,7 +3,7 @@ export type Product = {
 	name: string;
 	url: string;
 	image: string;
-	inStock: boolean | null;
+	available: boolean | null;
 	keyword: string;
 	updated: string;
 };

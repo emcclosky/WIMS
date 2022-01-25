@@ -6,23 +6,23 @@ export const getAllProducts = async (): Promise<Products> => {
 	return productsResult.rows;
 };
 
-export const getAllInStockProducts = async (): Promise<Products> => {
+export const getAllAvailableProducts = async (): Promise<Products> => {
 	const productsResult = await query<Product>(
-		"SELECT * FROM products p WHERE p.in_stock = true"
+		"SELECT * FROM products p WHERE p.available = true"
 	);
 	return productsResult.rows;
 };
 
-const updateProduct = async ({ id, inStock }: Product) => {
+const updateProduct = async ({ id, available }: Product) => {
 	const updateProduct = `
 		UPDATE products AS p
 		SET
-			in_stock = $1,
-			updated = NOW()
+      available = $1,
+      updated = NOW()
 		WHERE p.id = $2;
 	`;
 
-	await query<Product>(updateProduct, [inStock, id]);
+	await query<Product>(updateProduct, [available, id]);
 };
 
 export const updateProducts = async (products: Products) => {
