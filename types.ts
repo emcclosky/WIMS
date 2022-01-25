@@ -5,6 +5,7 @@ export type Product = {
 	image: string;
 	inStock: boolean | null;
 	keyword: string;
+	updated: string;
 };
 
 export type Products = Product[];
