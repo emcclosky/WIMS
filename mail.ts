@@ -1,8 +1,6 @@
 import nodemailer from "nodemailer";
 import { Products } from "./types";
 
-// TODO: https://www.google.com/settings/security/lesssecureapps
-// Paste screen shot
 const transporter = nodemailer.createTransport({
 	service: "gmail",
 	auth: {
