@@ -15,7 +15,7 @@
       "noUnusedParameters": true,
       "pretty": true,
       "noFallthroughCasesInSwitch": true,
-      "allowUnreachableCode": false
+      "allowUnreachableCode": false,
   },
   "include": ["*", "db/*"],
   "exclude": ["node_modules"]
