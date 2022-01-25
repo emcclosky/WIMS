@@ -14,6 +14,10 @@ Having created the database, fill out `.env.defaults` and then `cp .env.defaults
 yarn db:bootstrap
 ```
 ### Gmail Setup
+With a throwaway email (the one you put in your `.env.defaults`), go [here](https://www.google.com/settings/security/lesssecureapps) and toggle _on_ less secure apps.
+
+<img width="1786" alt="Screen Shot 2022-01-22 at 7 27 06 PM" src="https://user-images.githubusercontent.com/29644031/150893088-66ee06bc-2fba-40b2-9bd0-a2b51dbffac0.png">
+
 
 ### Running the Scraper
 ```
