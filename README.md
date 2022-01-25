@@ -1,5 +1,5 @@
 # WIMS - Where's My Stuff Scraper
-For when you're tired of checking if your Lululemon leggings are back in stock.
+A web scraper for checking product availability for supported sites.
 
 ## Commands
 ### Database Setup
